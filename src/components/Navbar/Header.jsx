@@ -5,8 +5,8 @@ import { FaUtensils } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <div className="navbar">
-      <div className="navbar-start">
+    <div className="navbar flex items-center justify-between">
+      <div className="navbar-start w-full md:w-[770px]">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
