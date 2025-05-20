@@ -62,17 +62,10 @@ const Footer = () => {
                   href="#"
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  Events
+                  Recipes
                 </a>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  Venues
-                </a>
-              </li>
+            
               <li>
                 <a
                   href="#"
@@ -134,17 +127,17 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <i className="fas fa-map-marker-alt mt-1 mr-3 text-indigo-400"></i>
+                <i className="fas fa-map-marker-alt mt-1 mr-3 text-[#AD49E1]"></i>
                 <span className="text-gray-400">
                   Mirpur 1 , Dhaka , Bangladesh
                 </span>
               </li>
               <li className="flex items-center">
-                <i className="fas fa-phone-alt mr-3 text-indigo-400"></i>
+                <i className="fas fa-phone-alt mr-3 text-[#AD49E1]"></i>
                 <span className="text-gray-400">+880 1734-564560</span>
               </li>
               <li className="flex items-center">
-                <i className="fas fa-envelope mr-3 text-indigo-400"></i>
+                <i className="fas fa-envelope mr-3 text-[#AD49E1]"></i>
                 <span className="text-gray-400">recipebook@gmail.com</span>
               </li>
             </ul>

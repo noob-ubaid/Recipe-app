@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home";
 import AllRecipes from "../Pages/AllRecipes/AllRecipes";
 import AddRecipes from "../Pages/AddRecipes/AddRecipes";
 import MyRecipes from "../Pages/MyRecipes/MyRecipes";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -27,4 +29,12 @@ export const router = createBrowserRouter([
         }
     ]
   },
+  {
+    path : '/login',
+    Component : Login
+  },
+  {
+    path : '/register',
+    Component : Register
+  }
 ]);
