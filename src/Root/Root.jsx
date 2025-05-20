@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../components/Navbar/Header';
+import { Outlet } from 'react-router';
 
 const Root = () => {
     return (
-        <div className='max-w-[1600px] mx-auto'>
+        <div className='max-w-[1600px] mx-auto px-4 md:px-0'>
            <Header></Header>
+           <Outlet></Outlet>
         </div>
     );
 };
