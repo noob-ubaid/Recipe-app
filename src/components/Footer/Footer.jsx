@@ -1,6 +1,5 @@
 import React from "react";
-import { FaFacebook, FaInternetExplorer, FaUtensils } from "react-icons/fa";
-import { Link } from "react-router";
+import { FaUtensils } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white mt-10 pt-16 pb-8">

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { use } from 'react';
 import Slider from '../../components/slider/Slider';
+import { AuthContext } from '../../components/Context/AuthProvider';
 
 const Home = () => {
     return (

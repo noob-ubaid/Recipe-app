@@ -6,14 +6,14 @@ const Banner = () => {
       <div className="flex flex-col items-center justify-center text-center px-4 md:px-0 h-full">
         <h2 className="text-2xl font-medium md:text-3xl md:font-semibold lg:text-5xl text-center md:text-left text-white">
           Discover  
-          <span style={{ color: "#AD49E1", fontWeight: "bold", fontStyle:"italic", paddingLeft:"12px"}}>
+          <span style={{ color: "#AD49E1", fontWeight: "bold", fontStyle:"italic", paddingInline:"12px"}}>
             <Typewriter
               words={["Healthy", "Fresh", "Quick", "Delicious "]}
-              loop={5}
+              loop={Infinity}
               cursor
               cursorStyle="|"
-              typeSpeed={100}
-              deleteSpeed={70}
+              typeSpeed={120}
+              deleteSpeed={90}
               delaySpeed={1000}
             />
           </span>
