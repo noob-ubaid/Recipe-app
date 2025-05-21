@@ -1,34 +1,46 @@
-import React, { use } from "react";
+import React, { use, useRef } from "react";
 import Header from "../../components/Navbar/Header";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../components/Context/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-    const {login , google} = use(AuthContext)
-    const navigate = useNavigate()
-    const handleLogin = e => {
-        e.preventDefault()
-        const form = e.target
-        const email = form.email.value
-        const password = form.password.value
-        console.log(email, password)
-        login(email,password)
-        .then(result => {
-            console.log(result.user)
-        })
-        .then(error => {
-            console.log(error)
-        })
-    }
-     const handleGoogle = () => {
-        google()
-          .then((result) => {
-            toast.success("Successfully logged in");
-            navigate('/')
-          })
-          .then(() => {});
-      }
+  const { logIn, forgetPassword, google } = use(AuthContext);
+  const emailRef = useRef();
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    logIn(email, password)
+      .then((result) => {
+        toast.success("Successfully logged in");
+        navigate("/")
+      })
+      .then((error) => {
+        console.log(error);
+      });
+  };
+  const forget = (e) => {
+    const email = emailRef.current.value;
+    forgetPassword(email)
+      .then(() => {
+        toast.success("Check your email");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
+  const handleGoogle = () => {
+    google()
+      .then((result) => {
+        toast.success("Successfully logged in");
+        navigate("/");
+      })
+      .then(() => {});
+  };
   return (
     <div className="max-w-[1600px] mx-auto">
       <Header></Header>
@@ -44,6 +56,7 @@ const Login = () => {
               name="email"
               className="input w-full mb-2"
               placeholder="Email"
+              ref={emailRef}
             />
             <label className="label text-[14px] font-medium mb-1">
               Password
@@ -58,7 +71,7 @@ const Login = () => {
               />
             </div>
             <div className="mt-2">
-              <a className="link link-hover ">Forgot password?</a>
+              <a onClick={forget} className="link link-hover ">Forgot password?</a>
             </div>
             <button className="btn btn-neutral mt-4 w-full">Login</button>
             <p className="text-center text-[14px] mt-2 font-medium">
@@ -73,7 +86,10 @@ const Login = () => {
               <div className="border-b w-[45%] border-b-[#0F0F0F26]"></div>
             </div>
             <div>
-              <button onClick={handleGoogle} className="btn bg-white w-full mt-2 text-black border-[#e5e5e5]">
+              <button
+                onClick={handleGoogle}
+                className="btn bg-white w-full mt-2 text-black border-[#e5e5e5]"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"

@@ -3,7 +3,8 @@ import { Link, NavLink } from "react-router";
 import { FaUtensils } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-toastify";
-
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
 const Header = () => {
   const {user , logOut} = use(AuthContext)
   console.log(user)
@@ -62,7 +63,7 @@ const Header = () => {
             </NavLink>
           </ul>
         </div>
-        <h1 className="font-bold md:text-2xl text-xl ml-2 md:ml-0 flex items-center gap-2 text-[#AD49E1]">
+        <h1 className="md:font-bold font-semibold md:text-2xl text-lg ml-1 md:ml-0 flex items-center gap-1 md:gap-2 text-[#AD49E1]">
           <FaUtensils /> Recipe Book
         </h1>
       </div>
@@ -91,8 +92,9 @@ const Header = () => {
           </NavLink>
         </ul>
       </div>
-      <div className="navbar-end flex items-center gap-4">
-         <button>
+      <div className="navbar-end flex items-center gap-2 md:gap-4">
+          <Tooltip title={user && user.displayName} arrow>
+          <Button>
             {user && (
               <img
                 className="md:size-12 size-10 rounded-full"
@@ -100,9 +102,10 @@ const Header = () => {
                 alt=""
               />
             )}
-          </button>
+          </Button>
+        </Tooltip>
        {
-        user ?  <button onClick={handleLogOut} className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded">
+        user ?  <button onClick={handleLogOut} className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-3.5 py-2  rounded">
           logout
         </button> : <Link to='/login' className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded">
           Login
