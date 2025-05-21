@@ -7,6 +7,7 @@ import MyRecipes from "../Pages/MyRecipes/MyRecipes";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "../components/Context/PrivatRoute";
+import Details from "../Pages/Details/Details";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -18,8 +19,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allrecipes",
-        Component: AllRecipes ,
-        loader : () => fetch("https://recipe-server-liard.vercel.app/addrecipes")
+        Component: AllRecipes,
+        loader: () =>
+          fetch("https://recipe-server-liard.vercel.app/addrecipes"),
       },
       {
         path: "/addrecipes",
@@ -30,8 +32,21 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path : '/addrecipes/:id',
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader : ({params}) => fetch(`https://recipe-server-liard.vercel.app/addrecipes/${params.id}`)
+      },
+      {
         path: "/myrecipes",
-         element : <PrivateRoute><MyRecipes></MyRecipes></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <MyRecipes></MyRecipes>
+          </PrivateRoute>
+        ),
       },
     ],
   },
