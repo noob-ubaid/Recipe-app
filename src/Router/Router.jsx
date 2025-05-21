@@ -18,7 +18,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allrecipes",
-        element: <AllRecipes></AllRecipes>,
+        Component: AllRecipes ,
+        loader : () => fetch("https://recipe-server-liard.vercel.app/addrecipes")
       },
       {
         path: "/addrecipes",
