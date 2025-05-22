@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const Recipe = ({ recipe }) => {
   return (
-    <div className="border border-[#0F0F0F26] p-4 md:p-6 rounded-md">
+    <div className="border hover:shadow-md transition duration-300 border-[#0F0F0F26] p-4 md:p-6 rounded-md">
       <div>
         <img
           className="w-full h-[280px] object-cover bg-center rounded-md"

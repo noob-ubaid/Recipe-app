@@ -13,7 +13,7 @@ const MyRecipes = () => {
     return <NoRecipe></NoRecipe>
   }
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-6 md:mt-10">
+    <div className="flex flex-col gap-8 mt-6 md:mt-10">
       {filteredRecipe.map((card) => (
           <MyRecipe
             key={card._id}

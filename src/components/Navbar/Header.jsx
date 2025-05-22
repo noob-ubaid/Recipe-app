@@ -76,14 +76,14 @@ const Header = () => {
                   Login
                 </Link>
               )}
-               {!user && (
-              <Link
-                to="/register"
-                className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
-              >
-                Register
-              </Link>
-            )}
+              {!user && (
+                <Link
+                  to="/register"
+                  className=" border-[#AD49E1] border text-[#AD49E1] font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
+                >
+                  Register
+                </Link>
+              )}
             </ul>
           </div>
           <h1 className="font-bold text-2xl ml-2 md:ml-0 flex items-center gap-2 md:gap-3 text-[#AD49E1]">
@@ -144,13 +144,13 @@ const Header = () => {
               </Link>
             )}
             {!user && (
-              <Link
-                to="/register"
-                className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
-              >
-                Register
-              </Link>
-            )}
+                <Link
+                  to="/register"
+                  className=" border-[#AD49E1] border text-[#AD49E1] font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
+                >
+                  Register
+                </Link>
+              )}
           </div>
         </div>
       </div>
