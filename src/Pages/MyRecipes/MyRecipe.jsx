@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const Mycard = ({ card }) => {
+const MyRecipe = ({ card, recipe, setRecipe }) => {
+
+  
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -20,6 +23,10 @@ const Mycard = ({ card }) => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
+              const remainingRecipe = recipe.filter(
+                (remain) => remain._id !== id
+              );
+              setRecipe(remainingRecipe);
               Swal.fire({
                 title: "Deleted!",
                 text: "Your recipe has been deleted.",
@@ -71,4 +78,4 @@ const Mycard = ({ card }) => {
   );
 };
 
-export default Mycard;
+export default MyRecipe;
