@@ -8,10 +8,12 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "../components/Context/PrivatRoute";
 import Details from "../Pages/Details/Details";
+import Error from "../Pages/Error/Error";
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
+    errorElement : <Error></Error>,
     children: [
       {
         index: true,

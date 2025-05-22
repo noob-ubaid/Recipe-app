@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import Header from "../../components/Navbar/Header";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../components/Context/AuthProvider";
 const Register = () => {
@@ -9,6 +9,7 @@ const Register = () => {
  const [error , setError] = useState(false)
  const navigate = useNavigate()
   const [show, setShow] = useState(false);
+  const location = useLocation()
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -22,7 +23,7 @@ const Register = () => {
         .then(() => {
           toast.success("Successfully logged in");
           setUser({...user,displayName: name, photoURL: photo });
-          navigate('/')
+          navigate(`${location.state ? location.state : '/'}`)
         }).then(error => {
           setUser(user)
           toast(error);
@@ -37,7 +38,7 @@ const Register = () => {
     google()
       .then((result) => {
         toast.success("Successfully logged in");
-        navigate('/')
+        navigate(`${location.state ? location.state : '/'}`)
       })
       .then(() => {});
   }

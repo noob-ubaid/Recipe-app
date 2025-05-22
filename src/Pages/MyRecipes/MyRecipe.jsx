@@ -3,9 +3,6 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const MyRecipe = ({ card, recipe, setRecipe }) => {
-
-  
-
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -23,15 +20,16 @@ const MyRecipe = ({ card, recipe, setRecipe }) => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
-              const remainingRecipe = recipe.filter(
-                (remain) => remain._id !== id
-              );
-              setRecipe(remainingRecipe);
+              
               Swal.fire({
                 title: "Deleted!",
                 text: "Your recipe has been deleted.",
                 icon: "success",
               });
+              const remainingRecipe = recipe.filter(
+                (remain) => remain._id !== id
+              );
+              setRecipe(remainingRecipe);
             }
           });
       }

@@ -15,7 +15,7 @@ const Header = () => {
       .then((error) => {});
   };
   return (
-    <div className="max-w-[1600px] mx-auto">
+    <div className="max-w-[1600px] py-2 mx-auto">
       <div className="navbar flex items-center justify-between">
         <div className="navbar-start w-full md:w-[770px]">
           <div className="dropdown">
@@ -61,9 +61,32 @@ const Header = () => {
               >
                 My Recipes
               </NavLink>
+              {user ? (
+                <button
+                  onClick={handleLogOut}
+                  className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-3.5 py-2  rounded"
+                >
+                  logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
+                >
+                  Login
+                </Link>
+              )}
+               {!user && (
+              <Link
+                to="/register"
+                className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
+              >
+                Register
+              </Link>
+            )}
             </ul>
           </div>
-          <h1 className="md:font-bold font-semibold md:text-2xl text-lg ml-1 md:ml-0 flex items-center gap-1 md:gap-2 text-[#AD49E1]">
+          <h1 className="font-bold text-2xl ml-2 md:ml-0 flex items-center gap-2 md:gap-3 text-[#AD49E1]">
             <FaUtensils /> Recipe Book
           </h1>
         </div>
@@ -104,21 +127,31 @@ const Header = () => {
               )}
             </Button>
           </Tooltip>
-          {user ? (
-            <button
-              onClick={handleLogOut}
-              className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-3.5 py-2  rounded"
-            >
-              logout
-            </button>
-          ) : (
-            <Link
-              to="/login"
-              className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
-            >
-              Login
-            </Link>
-          )}
+          <div className="md:flex items-center gap-4 hidden">
+            {user ? (
+              <button
+                onClick={handleLogOut}
+                className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-3.5 py-2  rounded"
+              >
+                logout
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
+              >
+                Login
+              </Link>
+            )}
+            {!user && (
+              <Link
+                to="/register"
+                className=" bg-[#AD49E1] text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
+              >
+                Register
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>

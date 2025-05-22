@@ -1,12 +1,13 @@
 import React, { use } from "react";
 import Header from "../../components/Navbar/Header";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../components/Context/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const { logIn, google } = use(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation()
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,7 +16,7 @@ const Login = () => {
     logIn(email, password)
       .then((result) => {
         toast.success("Successfully logged in");
-        navigate("/")
+        navigate(`${location.state ? location.state : '/'}`)
       })
       .then((error) => {
         console.log(error);
@@ -25,7 +26,7 @@ const Login = () => {
     google()
       .then((result) => {
         toast.success("Successfully logged in");
-        navigate("/");
+        navigate(`${location.state ? location.state : '/'}`)
       })
       .then(() => {});
   };
