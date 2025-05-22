@@ -23,7 +23,7 @@ const Recipe = ({ recipe }) => {
       </p>
       <div className="mt-4 w-full ">
         <Link
-          to={`/addrecipes/${recipe._id}`}
+          to={`/recipes/${recipe._id}`}
           className="block w-full text-center bg-[#AD49E1] text-white py-3 rounded-lg font-semibold hover:bg-[#9b3cd3] transition"
         >
           See Details
