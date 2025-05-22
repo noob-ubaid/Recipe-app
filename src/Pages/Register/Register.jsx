@@ -30,6 +30,9 @@ const Register = () => {
       })
       .then(() => {});
   };
+  const handleShow =() => {
+    setShow(!show)
+  }
   const handleGoogle = () => {
     google()
       .then((result) => {
@@ -87,7 +90,7 @@ const Register = () => {
                 className="input w-full"
                 placeholder="Password"
               />
-              <button type="button" className="cursor-pointer">
+              <button onClick={handleShow} type="button" className="cursor-pointer">
                 {show ? (
                   <FaEyeSlash size={20} className="absolute right-4 top-2.5" />
                 ) : (

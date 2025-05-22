@@ -46,6 +46,7 @@ export const router = createBrowserRouter([
             <MyRecipes></MyRecipes>
           </PrivateRoute>
         ),
+        loader: () => fetch("https://recipe-server-liard.vercel.app/addrecipes")
       },
     ],
   },

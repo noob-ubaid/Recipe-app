@@ -19,9 +19,6 @@ const AuthProvider = ({ children }) => {
   const logOut = () => {
     return signOut(auth)
   }
-    const forgetPassword = email => {
-    return sendPasswordResetEmail(auth, email)
-  }
   const google =() => {
     const provider = new GoogleAuthProvider();
    return signInWithPopup(auth, provider)
@@ -38,7 +35,6 @@ const AuthProvider = ({ children }) => {
   const data = {
     logIn,
     register,
-    forgetPassword ,
     logOut,
     loading,
     setLoading,

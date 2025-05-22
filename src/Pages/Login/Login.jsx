@@ -1,12 +1,11 @@
-import React, { use, useRef } from "react";
+import React, { use } from "react";
 import Header from "../../components/Navbar/Header";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../components/Context/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { logIn, forgetPassword, google } = use(AuthContext);
-  const emailRef = useRef();
+  const { logIn, google } = use(AuthContext);
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,17 +19,6 @@ const Login = () => {
       })
       .then((error) => {
         console.log(error);
-      });
-  };
-  const forget = (e) => {
-    const email = emailRef.current.value;
-    forgetPassword(email)
-      .then(() => {
-        toast.success("Check your email");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
       });
   };
   const handleGoogle = () => {
@@ -56,7 +44,6 @@ const Login = () => {
               name="email"
               className="input w-full mb-2"
               placeholder="Email"
-              ref={emailRef}
             />
             <label className="label text-[14px] font-medium mb-1">
               Password
@@ -71,7 +58,7 @@ const Login = () => {
               />
             </div>
             <div className="mt-2">
-              <a onClick={forget} className="link link-hover ">Forgot password?</a>
+              <a className="link link-hover ">Forgot password?</a>
             </div>
             <button className="btn btn-neutral mt-4 w-full">Login</button>
             <p className="text-center text-[14px] mt-2 font-medium">
