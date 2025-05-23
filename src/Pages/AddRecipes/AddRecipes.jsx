@@ -73,12 +73,13 @@ const AddRecipes = () => {
           <div className="flex items-center md:gap-8 gap-4   flex-col md:flex-row w-full">
             <select
               value={cuisine}
+              required
               onChange={handleCuisine}
               className=" px-6 py-3 rounded w-full bg-gray-200 outline-none"
             >
               <option value="">-- Choose a Cuisine type --</option>
               <option value="Italian">Italian</option>
-              <option value=" Mexican"> Mexican</option>
+              <option value="Mexican">Mexican</option>
               <option value="Indian">Indian</option>
               <option value="Chinese">Chinese</option>
               <option value="Others">Others</option>

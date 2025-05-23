@@ -4,6 +4,7 @@ import { AuthContext } from "../../components/Context/AuthProvider";
 import Faq from "../../components/Faq/Faq";
 import TopRecipes from "../../components/TopRecipes/TopRecipes";
 import { useLoaderData } from "react-router";
+import ExploreByCategory from "../../components/Category/ExploreByCategory";
 
 const Home = () => {
   const data = useLoaderData()
@@ -11,6 +12,7 @@ const Home = () => {
     <>
       <Slider></Slider>
       <TopRecipes data={data}></TopRecipes>
+      <ExploreByCategory></ExploreByCategory>
       <Faq></Faq>
     </>
   );
