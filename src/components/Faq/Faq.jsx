@@ -46,7 +46,7 @@ const Faq = () => {
         <h3 className="text-2xl md:text-4xl lg:text-5xl text-center  font-bold text-[#AD49E1]">
           Frequently Asked Questions
         </h3>
-        <p className="text-gray-500 my-4 font-medium text-center w-full">
+        <p className="text-gray-500 my-4 dark:text-gray-300 font-medium text-center w-full">
           Explore simple answers to help you navigate the app and enjoy sharing your favorite dishes.
         </p>
       </div>

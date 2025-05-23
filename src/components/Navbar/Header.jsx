@@ -1,11 +1,18 @@
 import React, { use } from "react";
+import { MdDarkMode } from "react-icons/md";
 import { Link, NavLink } from "react-router";
 import { FaUtensils } from "react-icons/fa";
+import { CiLight } from "react-icons/ci";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-toastify";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
+import { useDarkMode } from "../Context/ThemeContext";
 const Header = () => {
+  const { darkMode, setDarkMode } = useDarkMode();
+  const handleTheme = () => {
+    setDarkMode(!darkMode);
+  };
   const { user, logOut } = use(AuthContext);
   const handleLogOut = () => {
     logOut()
@@ -22,9 +29,9 @@ const Header = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
+                className="h-4 w-4 dark:text-white"
                 fill="none"
-                viewBox="0 0 24 24"
+                // viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 {" "}
@@ -92,23 +99,26 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal flex items-center gap-8 px-1">
-            <NavLink className="font-medium text-lg text-[#393E46]" to="/">
+            <NavLink
+              className="font-medium dark:text-white  text-lg text-[#393E46]"
+              to="/"
+            >
               Home
             </NavLink>
             <NavLink
-              className="font-medium text-lg text-[#393E46]"
+              className="font-medium dark:text-white  text-lg text-[#393E46]"
               to="/allrecipes"
             >
               All Recipes
             </NavLink>
             <NavLink
-              className="font-medium text-lg text-[#393E46]"
+              className="font-medium dark:text-white  text-lg text-[#393E46]"
               to="/addrecipes"
             >
               Add Recipes
             </NavLink>
             <NavLink
-              className="font-medium text-lg text-[#393E46]"
+              className="font-medium dark:text-white  text-lg text-[#393E46]"
               to="/myrecipes"
             >
               My Recipes
@@ -144,14 +154,24 @@ const Header = () => {
               </Link>
             )}
             {!user && (
-                <Link
-                  to="/register"
-                  className=" border-[#AD49E1] border text-[#AD49E1] font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
-                >
-                  Register
-                </Link>
-              )}
+              <Link
+                to="/register"
+                className=" border-[#AD49E1]  border text-[#AD49E1] font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
+              >
+                Register
+              </Link>
+            )}
           </div>
+          <button onClick={handleTheme}>
+            {darkMode ? (
+              <CiLight
+                className={darkMode ? "text-white" : "text-black"}
+                size={37}
+              />
+            ) : (
+              <MdDarkMode size={37} />
+            )}
+          </button>
         </div>
       </div>
     </div>

@@ -51,31 +51,31 @@ const AddRecipes = () => {
   };
   return (
     <>
-      <h1 className="text-center text-2xl md:text-3xl lg:text-4xl font-semibold mt-8 md:mt-12">
+      <h1 className="text-center text-2xl md:text-3xl dark:text-white lg:text-4xl font-semibold mt-8 md:mt-12">
         Add Recipe
       </h1>
       <form onSubmit={handleAddRecipes}>
         <div className="flex flex-col mt-6 md:gap-6 gap-4 md:mt-10 w-full">
           <input
-            className=" px-6 py-3 rounded bg-gray-200 outline-none"
+            className=" px-6 py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
             type="text"
             name="name"
             placeholder="Enter your Recipe Name"
             required
           />
           <input
-            className=" px-6 py-3 rounded bg-gray-200 outline-none"
+            className=" px-6 py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
             type="email"
             name="email"
             placeholder="Enter your email"
             required
           />
-          <div className="flex items-center md:gap-8 gap-4   flex-col md:flex-row w-full">
+          <div className="flex items-center md:gap-8 gap-4 dark:bg-gray-700 dark:text-white flex-col md:flex-row w-full">
             <select
               value={cuisine}
               required
               onChange={handleCuisine}
-              className=" px-6 py-3 rounded w-full bg-gray-200 outline-none"
+              className=" px-6 py-3 rounded w-full dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
             >
               <option value="">-- Choose a Cuisine type --</option>
               <option value="Italian">Italian</option>
@@ -87,7 +87,7 @@ const AddRecipes = () => {
           </div>
           <div className="flex items-center md:gap-8 gap-4  flex-col md:flex-row w-full">
             <input
-              className=" px-6 py-3  w-full rounded bg-gray-200 outline-none"
+              className=" px-6 py-3  w-full rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
               type="number"
               name="preparation"
               placeholder="Preparation Time"
@@ -95,7 +95,7 @@ const AddRecipes = () => {
             />
           </div>
           <input
-            className=" px-6 py-3 rounded bg-gray-200 outline-none"
+            className=" px-6 py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
             type="text"
             name="image"
             placeholder="Enter your Image URL"
@@ -108,7 +108,7 @@ const AddRecipes = () => {
             rows="5"
             required
             placeholder="Ingredients"
-            className=" px-6  py-3 rounded bg-gray-200 outline-none"
+            className=" px-6  py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
           ></textarea>
           <textarea
             name="Instructions"
@@ -117,12 +117,12 @@ const AddRecipes = () => {
             value={instructions}
             required
             placeholder="Instructions"
-            className=" px-6  py-3 rounded bg-gray-200 outline-none"
+            className=" px-6  py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
           ></textarea>
           <div className="flex flex-col gap-2">
             <label className="font-medium">Select Categories:</label>
             <div className="flex flex-wrap gap-4">
-              <label className="flex items-center gap-2">
+              <label className="flex items-center  dark:text-white gap-2">
                 <input
                   type="checkbox"
                   name="category"
@@ -134,7 +134,7 @@ const AddRecipes = () => {
                 Breakfast
               </label>
 
-              <label className="flex items-center gap-2">
+              <label className="flex items-center dark:text-white gap-2">
                 <input
                   type="checkbox"
                   name="category"
@@ -146,7 +146,7 @@ const AddRecipes = () => {
                 Lunch
               </label>
 
-              <label className="flex items-center gap-2">
+              <label className="flex items-center dark:text-white gap-2">
                 <input
                   type="checkbox"
                   name="category"
@@ -158,7 +158,7 @@ const AddRecipes = () => {
                 Dinner
               </label>
 
-              <label className="flex items-center gap-2">
+              <label className="flex items-center dark:text-white gap-2">
                 <input
                   type="checkbox"
                   name="category"
@@ -169,7 +169,7 @@ const AddRecipes = () => {
                 />
                 Dessert
               </label>
-              <label className="flex items-center gap-2">
+              <label className="flex items-center dark:text-white gap-2">
                 <input
                   type="checkbox"
                   name="categories"
@@ -182,7 +182,7 @@ const AddRecipes = () => {
           </div>
           <button
             type="submit"
-            className=" bg-[#AD49E1] w-full text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
+            className=" bg-[#AD49E1] w-full  text-white font-medium md:px-8 md:py-2.5 px-4 py-2  rounded"
           >
             Add Recipe
           </button>

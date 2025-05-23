@@ -10,7 +10,6 @@ const AllRecipes = () => {
   const handleCuisineType = (e) => {
     setCuisine(e.target.value.trim());
   };
-console.log(cuisine)
   const filteredRecipe =
     cuisine === "All"
       ? data
@@ -22,7 +21,7 @@ console.log(cuisine)
         <select
           value={cuisine}
           onChange={handleCuisineType}
-          className="px-6 py-3 rounded w-full bg-gray-200 outline-none"
+          className="px-6 py-3 rounded w-full bg-gray-200 dark:bg-gray-700 dark:text-white outline-none"
         >
           <option value="All">All</option>
           <option value="Italian">Italian</option>
@@ -33,11 +32,11 @@ console.log(cuisine)
         </select>
       </div>
 
-      {filteredRecipe.length === 0 && <Filter cuisine={cuisine}/>}
+      {filteredRecipe.length === 0 && <Filter cuisine={cuisine} />}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         {filteredRecipe.map((recipe) => (
-          <Recipe key={recipe._id}  recipe={recipe} />
+          <Recipe key={recipe._id} recipe={recipe} />
         ))}
       </div>
     </>

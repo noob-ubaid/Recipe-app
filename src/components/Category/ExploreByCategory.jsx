@@ -21,7 +21,7 @@ const ExploreByCategory = () => {
     <section className="py-12 px-4 md:px-12">
       <div className="max-w-6xl mx-auto text-center">
         <h3 className="text-2xl md:text-4xl  lg:text-5xl text-center  font-bold text-[#AD49E1]">
-          🍽️ Explore by Category
+           Explore by Category 🍽️
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 mt-12 md:mt-20  gap-6">
           {categories.map((cat, index) => (
