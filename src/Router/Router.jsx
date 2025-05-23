@@ -18,6 +18,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: () => fetch("https://recipe-server-liard.vercel.app/filterrecipe")
       },
       {
         path: "/allrecipes",
