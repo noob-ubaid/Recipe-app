@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
 import Swal from "sweetalert2";
 import Modal from "../../components/Modal/Modal";
 
-const MyRecipe = ({ card, recipe, setRecipe  }) => {
+const MyRecipe = ({ card, recipe, setRecipe }) => {
   const [modalOpen, setModalOpen] = useState(false);
+
+  const handleUpdateRecipe = (updatedRecipe) => {
+    const updatedList = recipe.map((item) =>
+      item._id === updatedRecipe._id ? updatedRecipe : item
+    );
+    setRecipe(updatedList);
+  };
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -22,23 +29,24 @@ const MyRecipe = ({ card, recipe, setRecipe  }) => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your recipe has been deleted.",
-                icon: "success",
-              });
-              const remainingRecipe = recipe.filter(
-                (remain) => remain._id !== id
-              );
+              Swal.fire("Deleted!", "Your recipe has been deleted.", "success");
+              const remainingRecipe = recipe.filter((r) => r._id !== id);
               setRecipe(remainingRecipe);
             }
           });
       }
     });
   };
+
   return (
     <>
-  {modalOpen && <Modal card={card} setModalOpen={setModalOpen}></Modal>}
+      {modalOpen && (
+        <Modal
+          card={card}
+          setModalOpen={setModalOpen}
+          onUpdate={handleUpdateRecipe}
+        />
+      )}
       <div className="border flex flex-col md:flex-row gap-6 md:gap-8 border-[#0F0F0F26] dark:border-gray-700 p-4 md:p-6 rounded-md">
         <div className="md:w-[40%]">
           <img
@@ -52,23 +60,26 @@ const MyRecipe = ({ card, recipe, setRecipe  }) => {
             Recipe Name : {card.name}
           </h3>
           <p className="text-[#0F0F0F99] dark:text-white font-medium mt-2">
-            Ingredients : {card.ingredients}{" "}
+            Ingredients : {card.ingredients}
           </p>
           <p className="text-[#0F0F0F99] dark:text-white font-medium mt-2">
-            Instructions : {card.instructions}{" "}
+            Instructions : {card.instructions}
           </p>
           <p className="text-[#0F0F0F99] dark:text-white font-medium mt-2">
             Preparation Time : {card.time} Minutes
           </p>
           <p className="text-[#0F0F0F99] dark:text-white font-medium mt-2">
-            Cuisine Type : {card.cuisine}{" "}
+            Cuisine Type : {card.cuisine}
           </p>
           <p className="text-[#0F0F0F99] dark:text-white font-medium mt-2">
-            Category : {card.category}{" "}
+            Category : {card.category}
           </p>
 
           <div className="mt-4 w-full flex items-center gap-8 justify-center ">
-            <button onClick={() => setModalOpen(true)} className="rounded-md md:px-6 w-full md:py-3 px-4 py-2 text-[#09982F] bg-[#09982F1A] ">
+            <button
+              onClick={() => setModalOpen(true)}
+              className="rounded-md md:px-6 w-full md:py-3 px-4 py-2 text-[#09982F] bg-[#09982F1A] "
+            >
               Update
             </button>
             <button
