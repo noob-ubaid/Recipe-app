@@ -1,5 +1,4 @@
 import React, { use, useState } from "react";
-import Header from "../../components/Navbar/Header";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
@@ -44,9 +43,8 @@ const Register = () => {
   }
   return (
     <div className="max-w-[1600px] mx-auto">
-      <Header></Header>
       <div className="flex items-center justify-center ">
-        <div className="card-body max-w-md border border-[#0F0F0F26] rounded-md">
+        <div className="card-body max-w-md border dark:bg-white border-[#0F0F0F26] rounded-md">
           <h2 className="text-2xl font-semibold mt-4 mb-2 border-b border-b-[#0F0F0F26] pb-4 text-center">
             Register Your Account
           </h2>

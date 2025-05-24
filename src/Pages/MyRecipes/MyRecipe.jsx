@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 import Modal from "../../components/Modal/Modal";
 
-const MyRecipe = ({ card, recipe, setRecipe , filteredRecipe }) => {
+const MyRecipe = ({ card, recipe, setRecipe  }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const handleDelete = (id) => {
     Swal.fire({
@@ -38,7 +38,7 @@ const MyRecipe = ({ card, recipe, setRecipe , filteredRecipe }) => {
   };
   return (
     <>
-    {modalOpen && <Modal filteredRecipe={filteredRecipe} setModalOpen={setModalOpen}></Modal>}
+  {modalOpen && <Modal card={card} setModalOpen={setModalOpen}></Modal>}
       <div className="border flex flex-col md:flex-row gap-6 md:gap-8 border-[#0F0F0F26] dark:border-gray-700 p-4 md:p-6 rounded-md">
         <div className="md:w-[40%]">
           <img

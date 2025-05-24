@@ -1,7 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
-const Modal = ({ setModalOpen , filteredRecipe}) => {
-  console.log(filteredRecipe)
+const Modal = ({ setModalOpen, card }) => {
+  const [ingredients, setIngredients] = useState(card.ingredients);
+  const [instructions, setInstructions] = useState(card.instructions);
+  const [cuisine, setCuisine] = useState(card.cuisine);
+  const [category, setCategory] = useState(card.category);
+  const handleIngredients = (e) => {
+    setIngredients(e.target.value);
+  };
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
+  };
+  const handleCuisine = (e) => {
+    setCuisine(e.target.value);
+  };
+  const handleInstructions = (e) => {
+    setInstructions(e.target.value);
+  };
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const time = form.preparation.value;
+    const photo = form.image.value;
+    const data = {
+      name: name,
+      time: time,
+      email: card.email,
+      photo: photo,
+      like: card.like,
+      ingredients: ingredients,
+      instructions: instructions,
+      cuisine: cuisine,
+      category: category,
+    };
+
+    fetch(`https://recipe-server-liard.vercel.app/addrecipes/${card._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          toast.success("Your recipe has been updated");
+          setModalOpen(false);
+        }
+      });
+  };
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm">
@@ -12,18 +61,21 @@ const Modal = ({ setModalOpen , filteredRecipe}) => {
             </h2>
           </div>
 
-          <form>
+          <form onSubmit={handleUpdate}>
             <div className="flex flex-col mt-6 md:gap-6 gap-4 md:mt-10 w-full">
               <input
                 className=" px-6 py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
                 type="text"
                 name="name"
+                defaultValue={card.name}
                 placeholder="Enter your Recipe Name"
                 required
               />
 
               <div className="flex items-center md:gap-8 gap-4 dark:bg-gray-700 dark:text-white flex-col md:flex-row w-full">
                 <select
+                  value={cuisine}
+                  onChange={handleCuisine}
                   required
                   className=" px-6 py-3 rounded w-full dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
                 >
@@ -40,6 +92,7 @@ const Modal = ({ setModalOpen , filteredRecipe}) => {
                   className=" px-6 py-3  w-full rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
                   type="number"
                   name="preparation"
+                  defaultValue={card.time}
                   placeholder="Preparation Time"
                   required
                 />
@@ -48,6 +101,7 @@ const Modal = ({ setModalOpen , filteredRecipe}) => {
                 className=" px-6 py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
                 type="text"
                 name="image"
+                defaultValue={card.photo}
                 placeholder="Enter your Image URL"
                 required
               />
@@ -56,25 +110,28 @@ const Modal = ({ setModalOpen , filteredRecipe}) => {
                 rows="4"
                 required
                 placeholder="Ingredients"
+                onChange={handleIngredients}
+                defaultValue={card.ingredients}
                 className=" px-6  py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
               ></textarea>
               <textarea
                 name="Instructions"
                 rows="4"
+                onChange={handleInstructions}
                 required
                 placeholder="Instructions"
+                defaultValue={card.instructions}
                 className=" px-6  py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
               ></textarea>
               <div className="flex flex-col gap-2">
-                <label className="font-medium dark:text-white">
-                  Select Categories:
-                </label>
                 <div className="flex flex-wrap gap-4">
                   <label className="flex items-center  dark:text-white gap-2">
                     <input
                       type="checkbox"
                       name="category"
                       value="Breakfast"
+                      checked={category === "Breakfast"}
+                      onChange={handleCategory}
                       className="accent-purple-500"
                     />
                     Breakfast
@@ -85,6 +142,8 @@ const Modal = ({ setModalOpen , filteredRecipe}) => {
                       type="checkbox"
                       name="category"
                       value="Lunch"
+                      checked={category === "Lunch"}
+                      onChange={handleCategory}
                       className="accent-purple-500"
                     />
                     Lunch
@@ -95,6 +154,8 @@ const Modal = ({ setModalOpen , filteredRecipe}) => {
                       type="checkbox"
                       name="category"
                       value="Dinner"
+                      checked={category === "Dinner"}
+                      onChange={handleCategory}
                       className="accent-purple-500"
                     />
                     Dinner
@@ -105,6 +166,8 @@ const Modal = ({ setModalOpen , filteredRecipe}) => {
                       type="checkbox"
                       name="category"
                       value="Dessert"
+                      checked={category === "Dessert"}
+                      onChange={handleCategory}
                       className="accent-purple-500"
                     />
                     Dessert
@@ -113,7 +176,9 @@ const Modal = ({ setModalOpen , filteredRecipe}) => {
                     <input
                       type="checkbox"
                       name="categories"
+                      checked={category === "Vegan"}
                       value="Vegan"
+                      onChange={handleCategory}
                       className="accent-purple-500"
                     />
                     Vegan

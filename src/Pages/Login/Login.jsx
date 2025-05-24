@@ -1,5 +1,4 @@
 import React, { use } from "react";
-import Header from "../../components/Navbar/Header";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../components/Context/AuthProvider";
 import { toast } from "react-toastify";
@@ -32,9 +31,8 @@ const Login = () => {
   };
   return (
     <div className="max-w-[1600px] mx-auto">
-      <Header></Header>
       <div className="flex items-center justify-center mt-20">
-        <div className="card-body max-w-md border border-[#0F0F0F26] rounded-md">
+        <div className="card-body dark:bg-white max-w-md border border-[#0F0F0F26] rounded-md">
           <h2 className="text-2xl font-semibold mt-4 mb-2 border-b border-b-[#0F0F0F26] pb-4 text-center">
             Login Your Account
           </h2>

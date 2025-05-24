@@ -17,7 +17,6 @@ const MyRecipes = () => {
       {filteredRecipe.map((card) => (
           <MyRecipe
             key={card._id}
-            filteredRecipe={filteredRecipe}
             recipe={recipe}
             setRecipe={setRecipe}
             card={card}

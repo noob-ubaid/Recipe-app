@@ -13,17 +13,19 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
-    errorElement : <Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
         index: true,
         Component: Home,
-        loader: () => fetch("https://recipe-server-liard.vercel.app/filterrecipe")
+        loader: () =>
+          fetch("https://recipe-server-liard.vercel.app/filterrecipe"),
       },
       {
         path: "/allrecipes",
         Component: AllRecipes,
-        loader: () => fetch("https://recipe-server-liard.vercel.app/addrecipes")
+        loader: () =>
+          fetch("https://recipe-server-liard.vercel.app/addrecipes"),
       },
       {
         path: "/addrecipes",
@@ -34,13 +36,16 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path : '/recipes/:id',
+        path: "/recipes/:id",
         element: (
           <PrivateRoute>
             <Details></Details>
           </PrivateRoute>
         ),
-        loader : ({params}) => fetch(`https://recipe-server-liard.vercel.app/addrecipes/${params.id}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://recipe-server-liard.vercel.app/addrecipes/${params.id}`
+          ),
       },
       {
         path: "/myrecipes",
@@ -49,18 +54,17 @@ export const router = createBrowserRouter([
             <MyRecipes></MyRecipes>
           </PrivateRoute>
         ),
-        loader: () => fetch("https://recipe-server-liard.vercel.app/addrecipes")
+        loader: () =>
+          fetch("https://recipe-server-liard.vercel.app/addrecipes"),
+      },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/register",
+        Component: Register,
       },
     ],
   },
-  {
-    path: "/login",
-    Component: Login,
-  },
-  {
-    path: "/register",
-    Component: Register,
-  },
 ]);
-
-
