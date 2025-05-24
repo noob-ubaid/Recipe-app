@@ -9,7 +9,7 @@ const MyRecipes = () => {
   const data = useLoaderData();
   const [recipe, setRecipe] = useState(data);
   const filteredRecipe = recipe.filter((item) => item.email == user.email);
-   if (filteredRecipe.length < 1) {
+  if (filteredRecipe.length < 1) {
     return <NoRecipe></NoRecipe>
   }
   return (
@@ -17,6 +17,7 @@ const MyRecipes = () => {
       {filteredRecipe.map((card) => (
           <MyRecipe
             key={card._id}
+            filteredRecipe={filteredRecipe}
             recipe={recipe}
             setRecipe={setRecipe}
             card={card}

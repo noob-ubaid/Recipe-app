@@ -120,7 +120,7 @@ const AddRecipes = () => {
             className=" px-6  py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
           ></textarea>
           <div className="flex flex-col gap-2">
-            <label className="font-medium">Select Categories:</label>
+            <label className="font-medium dark:text-white">Select Categories:</label>
             <div className="flex flex-wrap gap-4">
               <label className="flex items-center  dark:text-white gap-2">
                 <input

@@ -6,6 +6,7 @@ import TopRecipes from "../../components/TopRecipes/TopRecipes";
 import { useLoaderData } from "react-router";
 import ExploreByCategory from "../../components/Category/ExploreByCategory";
 
+
 const Home = () => {
   const data = useLoaderData()
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <TopRecipes data={data}></TopRecipes>
       <ExploreByCategory></ExploreByCategory>
       <Faq></Faq>
+      
     </>
   );
 };
