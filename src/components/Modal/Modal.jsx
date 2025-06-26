@@ -71,7 +71,6 @@ const Modal = ({ setModalOpen, card, onUpdate }) => {
               required
               className=" px-6 py-3 rounded dark:bg-gray-700 dark:text-white bg-gray-200 outline-none"
             >
-              <option value="">-- Choose a Cuisine type --</option>
               <option value="Italian">Italian</option>
               <option value="Mexican">Mexican</option>
               <option value="Indian">Indian</option>

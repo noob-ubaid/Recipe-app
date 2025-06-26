@@ -59,10 +59,10 @@ const MyRecipe = ({ card, recipe, setRecipe }) => {
           <h3 className=" text-xl dark:text-white font-semibold">
             Recipe Name : {card.name}
           </h3>
-          <p className="text-[#0F0F0F99] dark:text-white font-medium mt-2">
+          <p className="text-[#0F0F0F99] dark:text-white font-medium my-2">
             Ingredients : {card.ingredients}
           </p>
-          <p className="text-[#0F0F0F99] dark:text-white font-medium mt-2">
+          <p className="text-[#0F0F0F99] dark:text-white font-medium my-4">
             Instructions : {card.instructions}
           </p>
           <p className="text-[#0F0F0F99] dark:text-white font-medium mt-2">

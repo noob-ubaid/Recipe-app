@@ -19,13 +19,13 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: () =>
-          fetch("https://recipe-server-liard.vercel.app/filterrecipe"),
+          fetch("https://recipe-book-server-rho-gilt.vercel.app/filterrecipe"),
       },
       {
         path: "/allrecipes",
         Component: AllRecipes,
         loader: () =>
-          fetch("https://recipe-server-liard.vercel.app/addrecipes"),
+          fetch("https://recipe-book-server-rho-gilt.vercel.app/addrecipes"),
       },
       {
         path: "/addrecipes",
@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://recipe-server-liard.vercel.app/addrecipes/${params.id}`
+            `https://recipe-book-server-rho-gilt.vercel.app/${params.id}`
           ),
       },
       {
@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () =>
-          fetch("https://recipe-server-liard.vercel.app/addrecipes"),
+          fetch("https://recipe-book-server-rho-gilt.vercel.app/addrecipes"),
       },
       {
         path: "/login",

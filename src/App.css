@@ -6,7 +6,5 @@ body {
   font-family: "Inter", sans-serif;
 }
 .active{
-    font-weight: 600;
-    color: #AD49E1;
-    border-bottom: 2px solid #AD49E1;
+    font-weight: 700;
 }
