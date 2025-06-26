@@ -44,8 +44,9 @@ const Header = () => {
             >
               <NavLink className="font-medium text-lg text-[#393E46]" to="/">Home</NavLink>
               <NavLink className="font-medium text-lg text-[#393E46]" to="/allrecipes">All Recipes</NavLink>
-              <NavLink className="font-medium text-lg text-[#393E46]" to="/addrecipes">Add Recipes</NavLink>
-              <NavLink className="font-medium text-lg text-[#393E46]" to="/myrecipes">My Recipes</NavLink>
+              <NavLink className="font-medium text-lg text-[#393E46]" to="/about">About Us</NavLink>
+              <NavLink className="font-medium text-lg text-[#393E46]" to="/contact">Contact Us</NavLink>
+              <NavLink className="font-medium text-lg text-[#393E46]" to="/support">Support</NavLink>
               {user ? (
                 <button
                   onClick={handleLogOut}
@@ -71,8 +72,9 @@ const Header = () => {
           <ul className="menu menu-horizontal flex items-center gap-8 px-1">
             <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/">Home</NavLink>
             <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/allrecipes">All Recipes</NavLink>
-            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/addrecipes">Add Recipes</NavLink>
-            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/myrecipes">My Recipes</NavLink>
+            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/about">About Us</NavLink>
+            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/contact">Contact Us</NavLink>
+            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/support">Support</NavLink>
           </ul>
         </div>
 

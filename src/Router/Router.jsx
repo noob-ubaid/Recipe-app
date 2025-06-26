@@ -9,6 +9,9 @@ import Register from "../Pages/Register/Register";
 import PrivateRoute from "../components/Context/PrivatRoute";
 import Details from "../Pages/Details/Details";
 import Error from "../Pages/Error/Error";
+import About from "../components/About/About";
+import Contact from "../components/Contact/Contact";
+import Support from "../components/Support/Support";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -60,6 +63,18 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         Component: Login,
+      },
+      {
+        path: "/about",
+        Component: About,
+      },
+      {
+        path: "/contact",
+        Component: Contact,
+      },
+      {
+        path: "/support",
+        Component: Support,
       },
       {
         path: "/register",
