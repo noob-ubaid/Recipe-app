@@ -39,7 +39,7 @@ const DashboardAllRecipes = () => {
 
   return (
     <>
-      <div className="flex items-center mt-6 md:mt-8 mb-6 gap-8">
+      <div className="flex items-center mt-6 md:mt-8 mb-6 gap-4 md:gap-8">
         <div className="w-full ">
           <select
             value={cuisine}

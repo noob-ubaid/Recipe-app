@@ -8,7 +8,7 @@ const Dashboard = () => {
       <div className="md:h-screen md:sticky md:left-0 md:z-50 top-0 bg-[#AD49E1] w-full md:w-[20%]">
         <Menubar />
       </div>
-      <div className="w-full md:w-[80%] p-4 md:p-10 ">
+      <div className="w-full md:w-[80%] bg-white dark:bg-gray-900 p-4 md:p-10 ">
         <Outlet></Outlet>
       </div>
     </div>
