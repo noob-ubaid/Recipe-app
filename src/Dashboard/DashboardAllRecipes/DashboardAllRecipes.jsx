@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from "react";
-import Filter from "../Filter/Filter";
-import MoreRecipe from "../MoreRecipe/MoreRecipe";
+import Recipe from "../../Pages/Recipe/recipe";
+import Filter from "../../Pages/Filter/Filter";
 
-const AllRecipes = () => {
+const DashboardAllRecipes = () => {
   const [cuisine, setCuisine] = useState("All");
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [sortOrder, setSortOrder] = useState("desc");
-  useEffect(() => {
-    setLoading(true);
-    fetch(
-      `https://recipe-book-server-rho-gilt.vercel.app/addrecipes?sort=${sortOrder}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setLoading(false);
-        setData(data);
-      });
-  }, [sortOrder]);
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <span className="loading loading-spinner loading-xl"></span>
-      </div>
-    );
-  }
-  const handleSortChange = (e) => {
-    setSortOrder(e.target.value);
-  };
+    const [loading, setLoading] = useState(true);
+    const [sortOrder, setSortOrder] = useState("desc");
+    useEffect(() => {
+      setLoading(true);
+      fetch(
+        `https://recipe-book-server-rho-gilt.vercel.app/addrecipes?sort=${sortOrder}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setLoading(false);
+          setData(data);
+        });
+    }, [sortOrder]);
+    if (loading) {
+      return (
+        <div className="flex items-center justify-center min-h-screen">
+          <span className="loading loading-spinner loading-xl"></span>
+        </div>
+      );
+    }
+    const handleSortChange = (e) => {
+      setSortOrder(e.target.value);
+    };
+
   const handleCuisineType = (e) => {
     setCuisine(e.target.value.trim());
   };
@@ -71,11 +72,11 @@ const AllRecipes = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         {filteredRecipe.map((recipe) => (
-          <MoreRecipe key={recipe._id} recipe={recipe} />
+          <Recipe key={recipe._id} recipe={recipe} />
         ))}
       </div>
     </>
   );
 };
 
-export default AllRecipes;
+export default DashboardAllRecipes;

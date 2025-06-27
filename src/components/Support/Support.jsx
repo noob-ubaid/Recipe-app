@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
+import { toast } from "react-toastify";
 
 const Support = () => {
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const issueRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const name = nameRef.current.value.trim();
+    const email = emailRef.current.value.trim();
+    const issue = issueRef.current.value.trim();
+
+    if (!name || !email || !issue) {
+      toast.error("Please fill out all fields!");
+    } else {
+      toast.success("Form submitted successfully!");
+      // Here you could do your form submission logic (e.g. API call)
+    }
+  };
   return (
     <div className="my-16">
       <div>
@@ -32,35 +51,39 @@ const Support = () => {
           </p>
         </div>
         <div className="flex-1">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 mb-4 gap-4 dark:text-gray-200 md:grid-cols-2">
-              <label htmlFor="" className="flex flex-col">
-                First Name :
+              <label className="flex flex-col">
+                Name :
                 <input
                   type="text"
-                  className="py-2 px-4 dark:text-black  rounded-md mt-2 outline-none bg-gray-100"
-                  placeholder="First Name"
+                  ref={nameRef}
+                  className="py-2 px-4 dark:text-black rounded-md mt-2 outline-none bg-gray-100"
+                  placeholder="Name"
                 />
               </label>
-              <label htmlFor="" className="flex flex-col">
+              <label className="flex flex-col">
                 Email :
                 <input
                   type="email"
+                  ref={emailRef}
                   className="py-2 px-4 rounded-md dark:text-black mt-2 outline-none bg-gray-100"
                   placeholder="Enter your email"
                 />
               </label>
             </div>
-            <label className="mt-4 dark:text-white" htmlFor="">
-              Describe the issue :{" "}
-            </label>
+
+            <label className="mt-4 dark:text-white">Describe the issue :</label>
             <textarea
-              className="py-2 px-4 mt-2  h-40 rounded-md outline-none bg-gray-100 w-full"
+              ref={issueRef}
+              className="py-2 px-4 mt-2 h-40 rounded-md outline-none bg-gray-100 w-full"
               placeholder="Describe the issue"
-              name=""
-              id=""
             ></textarea>
-            <button className="bg-[#AD49E1] mt-4 w-full text-white font-medium px-4 py-2 rounded">
+
+            <button
+              type="submit"
+              className="bg-[#AD49E1] mt-4 w-full text-white font-medium px-4 py-2 rounded"
+            >
               Send
             </button>
           </form>

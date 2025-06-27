@@ -25,7 +25,7 @@ const AddRecipes = () => {
       category: category,
     };
     // post method
-    fetch("https://recipe-server-liard.vercel.app/addrecipes", {
+    fetch("https://recipe-book-server-rho-gilt.vercel.app/addrecipes", {
       method: "POST",
       headers: {
         "content-type": "application/json",

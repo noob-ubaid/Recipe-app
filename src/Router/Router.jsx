@@ -12,6 +12,9 @@ import Error from "../Pages/Error/Error";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
 import Support from "../components/Support/Support";
+import Dashboard from "../Root/Dashboard";
+import DashboardAllRecipes from "../Dashboard/DashboardAllRecipes/DashboardAllRecipes";
+import DashboardRecipeDetails from "../Dashboard/DashboardrecipeDetails/DashboardrecipeDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -27,16 +30,6 @@ export const router = createBrowserRouter([
       {
         path: "/allrecipes",
         Component: AllRecipes,
-        loader: () =>
-          fetch("https://recipe-book-server-rho-gilt.vercel.app/addrecipes"),
-      },
-      {
-        path: "/addrecipes",
-        element: (
-          <PrivateRoute>
-            <AddRecipes></AddRecipes>
-          </PrivateRoute>
-        ),
       },
       {
         path: "/recipes/:id",
@@ -46,19 +39,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://recipe-book-server-rho-gilt.vercel.app/${params.id}`
-          ),
-      },
-      {
-        path: "/myrecipes",
-        element: (
-          <PrivateRoute>
-            <MyRecipes></MyRecipes>
-          </PrivateRoute>
-        ),
-        loader: () =>
-          fetch("https://recipe-book-server-rho-gilt.vercel.app/addrecipes"),
+          fetch(`https://recipe-book-server-rho-gilt.vercel.app/addrecipes/${params.id}`),
       },
       {
         path: "/login",
@@ -79,6 +60,44 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        path : 'dashboard',
+        Component: DashboardAllRecipes,
+      },
+      {
+        path: "/addrecipes",
+        element: (
+          <PrivateRoute>
+            <AddRecipes></AddRecipes>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboarddetails/:id",
+        element: (
+          <PrivateRoute>
+            <DashboardRecipeDetails></DashboardRecipeDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://recipe-book-server-rho-gilt.vercel.app/addrecipes/${params.id}`),
+      },
+      {
+        path: "/myrecipes",
+        element: (
+          <PrivateRoute>
+            <MyRecipes></MyRecipes>
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch("https://recipe-book-server-rho-gilt.vercel.app/addrecipes"),
       },
     ],
   },

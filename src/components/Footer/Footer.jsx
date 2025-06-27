@@ -8,9 +8,9 @@ const Footer = () => {
       <div className="max-w-3xl mx-auto px-4 text-center ">
         {/* Logo */}
         <div className="flex items-center flex-col justify-center">
-          <h1 className="font-bold md:text-2xl text-xl ml-2 md:ml-0 flex items-center gap-2 text-[#AD49E1]">
+          <Link to="/" className="font-bold md:text-2xl text-xl ml-2 md:ml-0 flex items-center gap-2 text-[#AD49E1]">
             <FaUtensils /> Recipe Book
-          </h1>
+          </Link>
           <p className="text-gray-400 border-b border-gray-400 dark:border-gray-600 pb-4 mt-4 mb-6">
             Discover and share tasty recipes from around the world with Recipe
             Book, featuring step-by-step instructions, vibrant images, and

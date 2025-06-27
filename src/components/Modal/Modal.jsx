@@ -26,7 +26,7 @@ const Modal = ({ setModalOpen, card, onUpdate }) => {
       category,
     };
 
-    fetch(`https://recipe-server-liard.vercel.app/addrecipes/${card._id}`, {
+    fetch(`https://recipe-book-server-rho-gilt.vercel.app/addrecipes/${card._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

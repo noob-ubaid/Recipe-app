@@ -2,7 +2,7 @@ import React, { use, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../../components/Context/AuthProvider";
 
-const Details = () => {
+const DashboardRecipeDetails = () => {
   const { user } = use(AuthContext);
   const recipe = useLoaderData();
   const [like, setLike] = useState(recipe.like);
@@ -79,4 +79,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default DashboardRecipeDetails;

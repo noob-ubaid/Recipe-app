@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-const Recipe = ({ recipe }) => {
+const MoreRecipe = ({ recipe }) => {
   return (
     <div className="border hover:shadow-md transition dark:border-gray-700 duration-300 border-[#0F0F0F26] p-4 md:p-6 rounded-md">
       <div>
@@ -20,7 +20,7 @@ const Recipe = ({ recipe }) => {
       </p>
       <div className="mt-4 w-full ">
         <Link
-          to={`/dashboarddetails/${recipe._id}`}
+          to={`/recipes/${recipe._id}`}
           className="block w-full text-center bg-[#AD49E1] text-white py-3 rounded-lg font-semibold hover:bg-[#9b3cd3] transition"
         >
           See Details
@@ -30,4 +30,4 @@ const Recipe = ({ recipe }) => {
   );
 };
 
-export default Recipe;
+export default MoreRecipe;

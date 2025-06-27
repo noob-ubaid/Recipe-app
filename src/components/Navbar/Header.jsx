@@ -21,8 +21,7 @@ const Header = () => {
   };
 
   return (
-
-     <div className="sticky top-3 z-50 max-w-[1600px] rounded-full mx-auto py-3 bg-[#AD49E1]">
+    <div className="sticky top-3 z-50 max-w-[1600px] rounded-full mx-auto py-3 bg-[#AD49E1]">
       <div className=" px-3 rounded-full bg-[#AD49E1] flex items-center justify-between">
         {/* Navbar Start */}
         <div className="navbar-start w-full md:w-[770px]">
@@ -35,18 +34,45 @@ const Header = () => {
                 fill="none"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
               </svg>
             </div>
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content gap-4 text-center bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
-              <NavLink className="font-medium text-lg text-[#393E46]" to="/">Home</NavLink>
-              <NavLink className="font-medium text-lg text-[#393E46]" to="/allrecipes">All Recipes</NavLink>
-              <NavLink className="font-medium text-lg text-[#393E46]" to="/about">About Us</NavLink>
-              <NavLink className="font-medium text-lg text-[#393E46]" to="/contact">Contact Us</NavLink>
-              <NavLink className="font-medium text-lg text-[#393E46]" to="/support">Support</NavLink>
+              <NavLink className="font-medium text-lg text-[#393E46]" to="/">
+                Home
+              </NavLink>
+              <NavLink
+                className="font-medium text-lg text-[#393E46]"
+                to="/allrecipes"
+              >
+                All Recipes
+              </NavLink>
+              <NavLink
+                className="font-medium text-lg text-[#393E46]"
+                to="/about"
+              >
+                About Us
+              </NavLink>
+              <NavLink
+                className="font-medium text-lg text-[#393E46]"
+                to="/contact"
+              >
+                Contact Us
+              </NavLink>
+              <NavLink
+                className="font-medium text-lg text-[#393E46]"
+                to="/support"
+              >
+                Support
+              </NavLink>
               {user ? (
                 <button
                   onClick={handleLogOut}
@@ -56,41 +82,81 @@ const Header = () => {
                 </button>
               ) : (
                 <>
-                  <Link to="/login" className="bg-[#AD49E1] text-white font-medium px-4 py-2 rounded">Login</Link>
-                  <Link to="/register" className="border border-[#AD49E1] text-[#393E46] font-medium px-4 py-2 rounded">Register</Link>
+                  <Link
+                    to="/login"
+                    className="bg-[#AD49E1] text-white font-medium px-4 py-2 rounded"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="border border-[#AD49E1] text-[#393E46] font-medium px-4 py-2 rounded"
+                  >
+                    Register
+                  </Link>
                 </>
               )}
             </ul>
           </div>
-          <h1 className="font-bold text-lg md:text-2xl ml-2 md:ml-0 flex items-center gap-2 md:gap-3 text-white">
+          <Link
+            to={`/`}
+            className="font-bold text-lg md:text-2xl ml-2 md:ml-0 flex items-center gap-2 md:gap-3 text-white"
+          >
             <FaUtensils /> Recipe Book
-          </h1>
+          </Link>
         </div>
 
         {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal flex items-center gap-8 px-1">
-            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/">Home</NavLink>
-            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/allrecipes">All Recipes</NavLink>
-            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/about">About Us</NavLink>
-            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/contact">Contact Us</NavLink>
-            <NavLink className="font-medium text-white text-lg hover:text-gray-200" to="/support">Support</NavLink>
+            <NavLink
+              className="font-medium text-white text-lg hover:text-gray-200"
+              to="/"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              className="font-medium text-white text-lg hover:text-gray-200"
+              to="/allrecipes"
+            >
+              All Recipes
+            </NavLink>
+            <NavLink
+              className="font-medium text-white text-lg hover:text-gray-200"
+              to="/about"
+            >
+              About Us
+            </NavLink>
+            <NavLink
+              className="font-medium text-white text-lg hover:text-gray-200"
+              to="/contact"
+            >
+              Contact Us
+            </NavLink>
+            <NavLink
+              className="font-medium text-white text-lg hover:text-gray-200"
+              to="/support"
+            >
+              Support
+            </NavLink>
           </ul>
         </div>
 
         {/* Navbar End */}
         <div className="navbar-end flex items-center gap-2 md:gap-4">
-          <Tooltip title={user && user.displayName} arrow>
-            <Button>
-              {user && (
-                <img
-                  className="md:size-12 size-10 rounded-full"
-                  src={user.photoURL}
-                  alt="User"
-                />
-              )}
-            </Button>
-          </Tooltip>
+          <Link to="/dashboard">
+            <Tooltip title={user && user.displayName} arrow>
+              <Button>
+                {user && (
+                  <img
+                    className="md:size-12 size-10 rounded-full"
+                    src={user.photoURL}
+                    alt="User"
+                  />
+                )}
+              </Button>
+            </Tooltip>
+          </Link>
           <div className="md:flex items-center gap-4 hidden">
             {user ? (
               <button
@@ -126,9 +192,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-
   );
 };
 
 export default Header;
-
